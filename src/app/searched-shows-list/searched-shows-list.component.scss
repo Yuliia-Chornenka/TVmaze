@@ -1,0 +1,19 @@
+.search {
+  &__list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  &__result {
+    font-size: 32px;
+    font-weight: 500;
+  }
+
+  &__no-result {
+    text-align: center;
+    font-size: 32px;
+  }
+}

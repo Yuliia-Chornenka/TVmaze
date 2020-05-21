@@ -1,0 +1,12 @@
+<p *ngIf="!searchedFilms.length" class="search__no-result">
+  No results for '{{shows}}' 🙈
+</p>
+
+<div class="container" *ngIf="searchedFilms.length">
+  <p class="search__result"> Search Results for '{{shows}}': </p>
+  <app-show-item
+    [showsList]="searchedFilms"
+    [selectedCategory]="selectedCategory"
+    class="search__list">
+  </app-show-item>
+</div>

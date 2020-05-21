@@ -1,0 +1,54 @@
+@import "src/app/styles/variables";
+
+.season {
+  font-size: 30px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #0a0a0a;
+  margin-top: 10px;
+
+  &__back {
+    font-size: 18px;
+    color: #7b95a3;
+    cursor: pointer;
+
+    &:hover {
+      color: #6c8999;
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto 20px auto;
+
+  &__header {
+    font-size: 16px;
+    padding: 20px 5px;
+    text-align: center;
+    font-weight: 500;
+  }
+  &__link {
+    text-decoration: none;
+    margin-bottom: 5px;
+    color: #7b95a3;
+
+    &:hover {
+      color: #6c8999;
+    }
+  }
+}
+
+tr {
+  &:first-of-type {
+    box-shadow: $mat-elevation-z8;
+    background-color: $mainColor;
+  }
+}
+
+td {
+  padding: 10px 5px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+}

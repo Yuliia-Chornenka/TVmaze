@@ -1,0 +1,25 @@
+<p class="container schedule"> Don't know which movie to choose, check the
+  <a routerLink="/schedule" class="schedule__link">Schedule</a>
+</p>
+
+<app-last-visited-films></app-last-visited-films>
+
+<div class="container main__content">
+  <div class="filters">
+    <label id="filter-category" class="filters__label">Category:</label>
+    <mat-radio-group aria-labelledby="filter-category" [(ngModel)]="selectedCategory">
+      <mat-radio-button
+        *ngFor="let category of categories"
+        [value]='category'
+        class="filters__option">
+        {{ category }}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <app-show-item
+    [showsList]="showsList"
+    [selectedCategory]="selectedCategory"
+    class="show__list">
+  </app-show-item>
+</div>

@@ -1,0 +1,27 @@
+@import "src/app/styles/variables";
+
+.shows {
+  &__item {
+    display: block;
+    width: 22%;
+    margin: 0 10px 25px 0;
+    text-decoration: none;
+    transition: all 150ms ease-out;
+
+    &:hover {
+      box-shadow: 0 3px 10px 6px #dcdcdc;
+      transform: scale(1.05);
+    }
+
+    &--content {
+      display: flex;
+      align-items: center;
+    }
+
+    &--star {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

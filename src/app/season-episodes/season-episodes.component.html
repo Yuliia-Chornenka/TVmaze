@@ -1,0 +1,31 @@
+<div class="container">
+
+  <p class="season">Season: {{ seasonNumber }} </p>
+
+  <table class="mat-elevation-z8 table">
+    <tr>
+      <th class="table__header"> Number </th>
+      <th class="table__header"> Name </th>
+      <th class="table__header"> Date </th>
+    </tr>
+
+    <tr *ngFor="let episode of episodes">
+      <td> {{ episode.number }}. </td>
+      <td>
+        <a class="table__link"
+          routerLink="/episode/{{ episode.id }}">
+          {{ episode.name }}
+        </a>
+      </td>
+      <td>{{ episode.airstamp | date:'longDate' }}</td>
+    </tr>
+  </table>
+
+  <span class="season__back"
+        (click)="goBack()">
+        <<< Go back
+  </span>
+
+</div>
+
+

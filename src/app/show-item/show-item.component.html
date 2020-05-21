@@ -1,0 +1,17 @@
+<a routerLink="/detail/{{ isSearchShow ? show.show.id : show.id }}" class="shows__item"
+   *ngFor="let show of showsList | filter:selectedCategory:'genres'">
+  <mat-card>
+    <img mat-card-image alt="" *ngIf="isSearchShow"
+         src="{{ show.show.image ? show.show.image.medium : '/assets/no-image.jpg' }}">
+    <img mat-card-image alt="" *ngIf="!isSearchShow"
+         src="{{ show.image ? show.image.medium : '/assets/no-image.jpg' }}">
+
+    <mat-card-content>
+      <p> {{ isSearchShow ? show.show.name : show.name }} </p>
+      <p class="shows__item--content"> Rating:
+        {{ isSearchShow ? show.show.rating.average : show.rating.average }}
+        <mat-icon class="shows__item--star"> star</mat-icon>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</a>

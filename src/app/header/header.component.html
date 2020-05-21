@@ -1,0 +1,62 @@
+<mat-toolbar role="heading" class="header__container">
+  <div class="header container">
+    <a routerLink="/" class="header__link">
+      <img alt="logo" src="../../assets/logo.png" class="header__logo">
+    </a>
+
+    <mat-form-field class="header__search">
+      <mat-label>Search shows by name...</mat-label>
+      <input matInput type="text" [(ngModel)]="searchValue" #search (input)="resetSearchList()">
+      <button mat-button matSuffix mat-icon-button
+              *ngIf="searchValue" (click)="resetSearchInput()">
+        <mat-icon>close</mat-icon>
+      </button>
+
+      <button mat-button matSuffix mat-icon-button
+              (click)="getShows(search.value)">
+        <mat-icon>search</mat-icon>
+      </button>
+
+      <div class="header__search-list" *ngIf="isSearchList && searchValue">
+        <p class="header__search--results">Search results:</p>
+
+        <p *ngIf="!searchedFilms.length" class="header__search--no-results">No results for '{{searchValue}}' 🙈</p>
+
+        <ng-container *ngIf="searchedFilms.length">
+          <a routerLink="/detail/{{ film.show.id }}"
+             *ngFor="let film of searchedFilms"
+             class="header__search-item"
+             (click)="resetSearchInput()">
+            <img src="{{ film.show.image ? film.show.image.medium : '/assets/no-image.jpg' }}"
+                 alt="" class="header__search--img">
+            <p class="header__search--name">{{ film.show.name }}</p>
+          </a>
+
+          <a routerLink="/search-results" [queryParams]="{ 'show': searchValue }"
+             (click)="resetSearchInput()"
+             class="header__search--link">
+            Show more...
+          </a>
+        </ng-container>
+      </div>
+    </mat-form-field>
+
+    <div *ngIf="auth.user$ | async; then authenticated else guest"></div>
+
+    <ng-template #guest>
+      <button mat-flat-button class="header__register-btn" (click)="auth.googleSignin()">
+        Sign in with Google+
+      </button>
+    </ng-template>
+
+    <ng-template #authenticated>
+      <div *ngIf="auth.user$ | async">
+        <a routerLink="/user" class="header__profile">Profile</a>
+        <button mat-flat-button color="accent" (click)="auth.signOut()">
+          Log out
+        </button>
+      </div>
+    </ng-template>
+
+  </div>
+</mat-toolbar>

@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="filters">
+    <mat-form-field color="accent">
+      <mat-label class="filters__text">Choose your country:</mat-label>
+      <mat-select class="filters__text" #country [value]="selectedCountry"
+                  (selectionChange)="getSchedule($event.value, date.value)">
+        <mat-option *ngFor="let countryName of countriesName" [value]="countryName">
+          {{ countryName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label class="filters__text">Choose date:</mat-label>
+      <input class="filters__text" matInput disabled
+             #date [matDatepicker]="chosenDate"
+             [min]="minDate" [max]="maxDate" [value]="today"
+             (dateChange)="getSchedule(country.value, $event.value)">
+      <mat-datepicker-toggle matSuffix [for]="chosenDate"></mat-datepicker-toggle>
+      <mat-datepicker #chosenDate disabled="false"></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <p *ngIf="!isSchedule" class="no-schedule">No schedule for today 🙈</p>
+
+  <table class="mat-elevation-z8 table" *ngIf="isSchedule">
+    <tr>
+      <th class="table__header"> Show name</th>
+      <th class="table__header"> Season</th>
+      <th class="table__header"> Episode name</th>
+      <th class="table__header"> Episode number</th>
+      <th class="table__header"> Runtime</th>
+      <th class="table__header"> Time</th>
+      <th class="table__header"> Channel</th>
+    </tr>
+
+    <tr *ngFor="let scheduleItem of schedule">
+      <td>
+        <a class="table__link"
+           routerLink="/detail/{{ scheduleItem.show.id }}">
+          {{ scheduleItem.show.name }}
+        </a>
+      </td>
+      <td> {{ scheduleItem.season }} </td>
+      <td> {{ scheduleItem.name }} </td>
+      <td> {{ scheduleItem.number }} </td>
+      <td>{{ scheduleItem.runtime }} minutes</td>
+      <td>{{ scheduleItem.show.schedule.time ? scheduleItem.show.schedule.time : 'no info' }} </td>
+      <td>{{ scheduleItem.show.webChannel ? scheduleItem.show.webChannel.name : 'no info' }} </td>
+    </tr>
+  </table>
+</div>
+

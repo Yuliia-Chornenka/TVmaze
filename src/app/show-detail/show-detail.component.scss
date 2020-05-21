@@ -1,0 +1,133 @@
+@import "src/app/styles/variables";
+
+.title {
+  font-size: 34px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: #0a0a0a;
+}
+
+.tab {
+  &__label {
+    color: black;
+  }
+
+  &__content {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__main {
+    margin-left: 20px;
+    text-align: justify;
+    color: #0a0a0a;
+    font-size: 15px;
+
+    &--left {
+      width: 60%;
+      display: flex;
+      align-items: flex-start;
+      line-height: 1.6;
+    }
+
+    &--right {
+      width: 30%;
+      background-color: #F7F7F7;
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      line-height: 0.8;
+    }
+
+    &-title {
+      font-size: 30px;
+      margin-top: 0;
+      font-weight: 300;
+    }
+
+    &--bold {
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-right: 6px;
+    }
+
+    &--rating {
+      display: flex;
+      align-items: center;
+    }
+
+    &--star {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      margin-left: 3px;
+      color: $secondColor;
+    }
+  }
+
+  &__cast {
+
+    &-item {
+      display: flex;
+      width: 45%;
+      margin-bottom: 20px;
+    }
+
+    &-name {
+      margin-left: 20px;
+      color: #0a0a0a;
+
+      &--person {
+        font-size: 21px;
+        font-weight: 500;
+        margin: 5px 0;
+      }
+
+      &--character {
+        font-size: 17px;
+        margin: 5px 0;
+        font-style: italic;
+      }
+    }
+  }
+
+  &__seasons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      display: flex;
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #F7F7F7;
+      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &-content {
+      margin-left: 20px;
+      line-height: 1.5;
+
+      &--bold {
+        font-weight: 500;
+      }
+    }
+
+    &--number {
+      font-size: 24px;
+      font-weight: 500;
+      margin: 5px 0;
+    }
+
+    &--link {
+      text-decoration: none;
+      margin-bottom: 5px;
+      color: #7b95a3;
+
+      &:hover {
+        color: #6c8999;
+      }
+    }
+  }
+}

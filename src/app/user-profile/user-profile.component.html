@@ -1,0 +1,20 @@
+<div class="container">
+  <div *ngIf="auth.user$ | async as user" class="profile">
+    <img [src]="user.photoURL" alt="" class="profile__img">
+    <div>
+      <p>
+        <span class="profile__text--bold">Name:</span>
+        {{ user.displayName }}
+      </p>
+      <p>
+        <span class="profile__text--bold">Email: </span>
+        {{ user.email }}
+      </p>
+      <button mat-flat-button color="accent" (click)="auth.signOut()">
+        Log out
+      </button>
+    </div>
+  </div>
+</div>
+
+

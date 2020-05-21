@@ -1,0 +1,25 @@
+<div class="container">
+
+  <p class="episode__title">Episode {{ episode.number }}:</p>
+
+  <div class="episode">
+    <div class="episode__summary">
+      <img src="{{ episode.image ? episode.image.medium : '/assets/no-image.png' }}"
+           alt="" class="episode__summary--img">
+      <div [innerHTML]="episode.summary"></div>
+    </div>
+
+    <div class="episode__info">
+      <p><span class="episode__info--bold">Name:</span> {{ episode.name }} </p>
+      <p><span class="episode__info--bold">Number:</span> {{ episode.number }} </p>
+      <p><span class="episode__info--bold">Season:</span> {{ episode.season }} </p>
+      <p><span class="episode__info--bold">Runtime:</span> {{ episode.runtime }}  minutes</p>
+    </div>
+  </div>
+
+  <span class="episode__back"
+        (click)="goBack()">
+        <<< Go back
+  </span>
+
+</div>

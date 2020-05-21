@@ -1,0 +1,72 @@
+<div class="container">
+  <h2 class="title"> {{ show.name }} </h2>
+
+  <mat-tab-group dynamicHeight>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="tab__label">Main</span>
+      </ng-template>
+      <div class="tab__content">
+        <div class="tab__main--left">
+          <img src="{{ show.image ? show.image.medium : '/assets/no-image.png' }}" alt="">
+          <div class="tab__main" [innerHTML]="show.summary"></div>
+        </div>
+        <div class="tab__main--right">
+          <p class="tab__main-title">Show Info</p>
+          <p><span class="tab__main--bold">Status:</span> {{ show.status }}</p>
+          <p><span class="tab__main--bold">Show Type:</span> {{ show.type }}</p>
+          <p><span class="tab__main--bold">Language:</span> {{ show.language }}</p>
+          <p><span class="tab__main--bold">Runtime:</span> {{ show.runtime }} minutes</p>
+          <p class="tab__main--rating">
+            <span class="tab__main--bold">Rating:</span>
+            {{ show.rating.average }}
+            <mat-icon class="tab__main--star"> star</mat-icon>
+          </p>
+          <p><span class="tab__main--bold">Genres:</span> {{ show.genres.join(' | ') }} </p>
+          <p><span class="tab__main--bold">Official site:</span>
+            <a [href]="show.officialSite" target="_blank"> Go to website >> </a>
+          </p>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="tab__label">Seasons</span>
+      </ng-template>
+      <div class="tab__seasons">
+        <div class="tab__seasons-item"
+             *ngFor="let season of seasons">
+          <img src="{{ season.image ? season.image.medium : '/assets/no-image.png' }}" alt="">
+          <div class="tab__seasons-content">
+            <p class="tab__seasons--number"> Season: {{ season.number }} </p>
+            <a class="tab__seasons--link"
+               routerLink="/detail/{{ show.id }}/season/{{ season.id }}">
+              Show all episodes >>>
+            </a>
+            <p><span class="tab__seasons-content--bold">Premiere date:</span> {{ season.premiereDate }} </p>
+            <p class="tab__seasons-content--bold">Summary:</p>
+            <div [innerHTML]="season.summary"></div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="tab__label">Cast</span>
+      </ng-template>
+      <div class="tab__content">
+        <div class="tab__cast-item"
+             *ngFor="let castPerson of cast">
+          <img src="{{ castPerson.person.image ? castPerson.person.image.medium : '/assets/no-image.png' }}" alt="">
+          <div class="tab__cast-name">
+            <p class="tab__cast-name--person"> {{ castPerson.person.name }} </p>
+            as <span class="tab__cast-name--character"> {{ castPerson.character.name }} </span>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</div>

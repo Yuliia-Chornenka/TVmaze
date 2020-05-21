@@ -1,0 +1,14 @@
+.footer {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+
+  &__link {
+    text-decoration: none;
+    color: white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShowsService } from '../shared/services/shows.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-searched-shows-list',
@@ -19,8 +19,10 @@ export class SearchedShowsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((queryParam: any) => this.shows = queryParam.show);
-    this.getShows(this.shows);
+    this.route.queryParams.subscribe((queryParam: any) => {
+      this.shows = queryParam.show;
+      this.getShows(this.shows);
+    });
   }
 
   getShows(query): void {

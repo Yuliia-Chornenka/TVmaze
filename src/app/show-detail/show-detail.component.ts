@@ -15,7 +15,6 @@ export class ShowDetailComponent implements OnInit {
   show: IShowItem;
   cast: ICastItem[];
   seasons: ISeasonItem[];
-  id: number;
 
   constructor(
     private showsService: ShowsService,
@@ -23,27 +22,28 @@ export class ShowDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => this.id = params.id);
-    this.getShow();
-    this.getCast();
-    this.getSeasons();
+    this.route.params.subscribe(params => {
+      this.getShow(params.id);
+      this.getCast(params.id);
+      this.getSeasons(params.id);
+    });
   }
 
-  getShow(): void {
-    this.showsService.getShow(this.id).subscribe(showItem => {
+  getShow(id): void {
+    this.showsService.getShow(id).subscribe(showItem => {
       this.show = showItem;
       this.showsService.addLastVisitedFilm(showItem).subscribe();
     });
   }
 
-  getCast(): void {
-    this.showsService.getCast(this.id).subscribe(cast => {
+  getCast(id): void {
+    this.showsService.getCast(id).subscribe(cast => {
       this.cast = cast;
     });
   }
 
-  getSeasons(): void {
-    this.showsService.getSeasons(this.id).subscribe(seasons => {
+  getSeasons(id): void {
+    this.showsService.getSeasons(id).subscribe(seasons => {
       this.seasons = seasons;
     });
   }

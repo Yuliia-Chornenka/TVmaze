@@ -45,7 +45,8 @@
 .show__list {
   width: 75%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   align-items: baseline;
 }
+

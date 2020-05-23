@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShowsService } from '../shared/services/shows.service';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-searched-shows-list',

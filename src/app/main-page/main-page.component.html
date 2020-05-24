@@ -10,7 +10,7 @@
     <mat-radio-group aria-labelledby="filter-category" [(ngModel)]="selectedCategory">
       <mat-radio-button
         *ngFor="let category of categories"
-        [value]='category'
+        [value]="category"
         class="filters__option">
         {{ category }}
       </mat-radio-button>

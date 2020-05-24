@@ -10,7 +10,7 @@ import { AuthService } from '../shared/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   searchValue = '';
-  searchedFilms = [];
+  searchedFilms = []; // type
   isSearchList = false;
 
   constructor(private showsService: ShowsService,
@@ -20,9 +20,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getShows(query): void {
+  getShows(query): void { // type
     this.isSearchList = true;
-    this.showsService.searchFilm(query).subscribe(shows => {
+    this.showsService.searchFilm(query).subscribe(shows => { // type
       this.searchedFilms = shows.slice(0, 5);
     });
   }

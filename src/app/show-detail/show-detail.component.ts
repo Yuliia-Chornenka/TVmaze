@@ -29,20 +29,20 @@ export class ShowDetailComponent implements OnInit {
     });
   }
 
-  getShow(id): void {
-    this.showsService.getShow(id).subscribe(showItem => {
+  getShow(id: number): void {
+    this.showsService.getShow(id).subscribe((showItem: IShowItem) => {
       this.show = showItem;
       this.showsService.addLastVisitedFilm(showItem).subscribe();
     });
   }
 
-  getCast(id): void {
+  getCast(id: number): void {
     this.showsService.getCast(id).subscribe(cast => {
       this.cast = cast;
     });
   }
 
-  getSeasons(id): void {
+  getSeasons(id: number): void {
     this.showsService.getSeasons(id).subscribe(seasons => {
       this.seasons = seasons;
     });

@@ -9,7 +9,7 @@ import { IShowItem } from '../shared/interfaces/show-item';
 })
 export class LastVisitedFilmsComponent implements OnInit {
 
-  lastVisitedFilms: IShowItem[] = [];
+  films: IShowItem[] = [];
   selectedCategory = '';
 
   constructor(
@@ -20,8 +20,8 @@ export class LastVisitedFilmsComponent implements OnInit {
   }
 
   getLastVisitedFilms(): void {
-    this.showsService.getLastVisitedFilms().subscribe(lastVisitedFilms => {
-      this.lastVisitedFilms = lastVisitedFilms;
+    this.showsService.getLastVisitedFilms().subscribe((films: IShowItem[]) => {
+      this.films = films;
     });
   }
 }

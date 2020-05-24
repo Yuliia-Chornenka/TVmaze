@@ -1,7 +1,7 @@
-<div class="container" *ngIf="lastVisitedFilms.length">
+<div class="container" *ngIf="films.length">
   <p class="last-visited">Last visited:</p>
   <app-show-item
-    [showsList]="lastVisitedFilms"
+    [showsList]="films"
     [selectedCategory]="selectedCategory"
     class="last-visited__list">
   </app-show-item>

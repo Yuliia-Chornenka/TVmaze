@@ -6,7 +6,7 @@ import { IShowItem } from '../interfaces/show-item';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(showsList: IShowItem[], searchValue, fieldName: string) {
+  transform(showsList: IShowItem[], searchValue, fieldName: string): IShowItem[] {
     if (!showsList.length || searchValue === '') {
       return showsList;
     }

@@ -12,7 +12,7 @@ import { countries } from '../shared/countries';
 export class ScheduleComponent implements OnInit {
 
   schedule: IScheduleItem[] = [];
-  countriesName = [];
+  countriesName: string[] = [];
   selectedCountry = 'Ukraine';
   minDate = '2010-01-01';
   maxDate = '2020-12-31';
@@ -55,8 +55,9 @@ export class ScheduleComponent implements OnInit {
     countries.forEach((country: ICountry) => {
       if (!this.countriesName.includes(country.name)) {
         this.countriesName.push(country.name);
-        this.countriesName.sort();
       }
     });
+
+    this.countriesName.sort();
   }
 }

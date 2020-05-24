@@ -15,6 +15,6 @@ export class NotFoundComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.location.back(); // I think, navigation to main page would be better
   }
 }

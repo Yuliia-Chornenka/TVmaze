@@ -1,4 +1,4 @@
-export const countries = [
+export const countries = [ // use UPPER_SNAKE_CASE to naming constants
   { name: 'Australia', code: 'AU'},
   { name: 'New Zealand', code: 'NZ'},
   { name: 'United States', code: 'US'},

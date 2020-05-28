@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { IShowItem } from '../interfaces/show-item';
 import { catchError } from 'rxjs/operators';
+import { IShowItem } from '../interfaces/show-item';
 import { ICastItem } from '../interfaces/cast-item';
 import { ISeasonItem } from '../interfaces/season-item';
 import { IEpisodeItem } from '../interfaces/episode-item';
@@ -13,6 +13,7 @@ import { IScheduleItem } from '../interfaces/schedule-item';
   providedIn: 'root'
 })
 export class ShowsService {
+  private showsUrl = 'https://api.tvmaze.com/shows';
   lastVisitedFilms = localStorage.getItem('lastVisited');
 
   constructor(private http: HttpClient) {
@@ -20,8 +21,6 @@ export class ShowsService {
       localStorage.setItem('lastVisited', JSON.stringify([]));
     }
   }
-
-  private showsUrl = 'https://api.tvmaze.com/shows';
 
   private handleError<T>(operation: string = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -100,7 +99,7 @@ export class ShowsService {
     return of(lastVisitedFilms);
   }
 
-  searchFilm(query): Observable<IShowItem[]> {
+  searchFilm(query: string): Observable<IShowItem[]> {
     const url = `https://api.tvmaze.com/search/shows?q=${query}`;
     return this.http.get<IShowItem[]>(url).pipe(
       catchError(this.handleError<IShowItem[]>(`searchFilm query=${query}`))

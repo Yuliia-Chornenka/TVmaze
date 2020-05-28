@@ -1,4 +1,5 @@
 <a routerLink="/detail/{{ isSearchShow ? show.show.id : show.id }}" class="shows__item"
+   [ngClass]="{'shows__item--no-margin': !isMarginLeft}"
    *ngFor="let show of showsList | filter:selectedCategory:'genres'">
   <mat-card>
     <img mat-card-image alt="" *ngIf="isSearchShow"

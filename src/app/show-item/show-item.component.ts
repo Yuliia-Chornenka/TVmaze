@@ -10,6 +10,7 @@ export class ShowItemComponent implements OnInit {
 
   @Input() showsList: IShowItem[] = [];
   @Input() selectedCategory: string;
+  @Input() isMarginLeft: boolean;
 
   isSearchShow = false;
 

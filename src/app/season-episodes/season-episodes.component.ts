@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ShowsService } from '../shared/services/shows.service';
-import { ActivatedRoute } from '@angular/router';
-import { IEpisodeItem } from '../shared/interfaces/episode-item';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { ShowsService } from '../shared/services/shows.service';
+import { IEpisodeItem } from '../shared/interfaces/episode-item';
 
 @Component({
   selector: 'app-season-episodes',

@@ -12,6 +12,7 @@ export class SearchedShowsListComponent implements OnInit {
   shows: string;
   searchedFilms = [];
   selectedCategory = '';
+  isMarginLeft = true;
 
   constructor(
     private showsService: ShowsService,

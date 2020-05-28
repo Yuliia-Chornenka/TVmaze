@@ -11,8 +11,9 @@ import { IShowItem } from '../shared/interfaces/show-item';
 export class MainPageComponent implements OnInit {
 
   showsList: IShowItem[] = [];
-  categories = [];
-  selectedCategory = 'Action';
+  categories: string[] = [];
+  selectedCategory: string;
+  isMarginLeft = true;
 
   constructor(private showsService: ShowsService) {
   }
@@ -22,17 +23,18 @@ export class MainPageComponent implements OnInit {
   }
 
   getShows(): void {
-    this.showsService.getShows().subscribe(shows => {
+    this.showsService.getShows().subscribe((shows: IShowItem[]) => {
       this.showsList = shows;
 
       shows.forEach((show: IShowItem) => {
         show.genres.forEach((genre: string) => {
           if (!this.categories.includes(genre)) {
             this.categories.push(genre);
-            this.categories.sort();
           }
         });
       });
+      this.categories.sort();
+      this.selectedCategory = this.categories[0];
     });
   }
 }

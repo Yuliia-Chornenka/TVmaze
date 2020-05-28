@@ -1,4 +1,4 @@
-export const countries = [
+export const COUNTRIES = [
   { name: 'Australia', code: 'AU'},
   { name: 'New Zealand', code: 'NZ'},
   { name: 'United States', code: 'US'},

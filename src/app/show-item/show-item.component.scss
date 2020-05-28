@@ -8,6 +8,10 @@
     text-decoration: none;
     transition: all 150ms ease-out;
 
+    &--no-margin:first-of-type {
+      margin-left: 0;
+    }
+
     &:hover {
       box-shadow: 0 3px 10px 6px #dcdcdc;
       transform: scale(1.05);

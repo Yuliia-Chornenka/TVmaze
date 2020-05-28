@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShowsService } from '../shared/services/shows.service';
 import { IScheduleItem } from '../shared/interfaces/schedule-item';
 import { ICountry } from '../shared/interfaces/country';
-import { countries } from '../shared/countries';
+import { COUNTRIES } from '../shared/countries';
 
 @Component({
   selector: 'app-schedule',
@@ -12,7 +12,7 @@ import { countries } from '../shared/countries';
 export class ScheduleComponent implements OnInit {
 
   schedule: IScheduleItem[] = [];
-  countriesName = [];
+  countriesName: string[] = [];
   selectedCountry = 'Ukraine';
   minDate = '2010-01-01';
   maxDate = '2020-12-31';
@@ -28,7 +28,7 @@ export class ScheduleComponent implements OnInit {
   }
 
   getSchedule(country: string, datePicked: string): void {
-    const countryToFind = countries.find((countryItem: ICountry) => countryItem.name === country);
+    const countryToFind = COUNTRIES.find((countryItem: ICountry) => countryItem.name === country);
     const countryCode = countryToFind.code;
 
     const date = new Date(datePicked);
@@ -52,11 +52,11 @@ export class ScheduleComponent implements OnInit {
   }
 
   getCountries(): void {
-    countries.forEach((country: ICountry) => {
+    COUNTRIES.forEach((country: ICountry) => {
       if (!this.countriesName.includes(country.name)) {
         this.countriesName.push(country.name);
-        this.countriesName.sort();
       }
     });
+    this.countriesName.sort();
   }
 }
